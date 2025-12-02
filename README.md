@@ -1,17 +1,22 @@
-# music-duplicate-sorter
-Got music files that shares the same names but you just want to get ones with lyrics, album cover or one with the highest bit rate? 
 
-It groups files by “same song name” (ignoring punctuation, spaces, underscores, etc.)
+1. **Group duplicates**  
+   - Files are grouped by “same song name” (ignoring punctuation, spaces, underscores, etc.)
 
-For each group of duplicates, it scores the files based on:
+2. **Score files**  
+   - For each group of duplicates, files are scored based on:
+     - **Embedded lyrics** → +2
+     - **Highest bit rate** → +1
+     - **Album cover** → +1
 
-+ Embedded lyrics (+2)
+3. **Resolve ties**  
+   - If multiple files have the same score, the file with the **shortest filename** is chosen.
 
-+ Highest bit rate (+1)
+4. **Move files**  
+   - The selected "best" file for each song is moved to the **output folder**.
 
-+ Album cover (+1)
+---
 
-If multiple files tie on score, it picks the one with the shortest filename
+## Usage
 
-Finally, it moves the selected “best” file for each song to the output folder
-\textbf{amogus}
+```bash
+python amogus.py --input <input_folder> --output <output_folder>
