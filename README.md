@@ -19,4 +19,4 @@
 ## Usage
 
 ```bash
-python amogus.py --input <input_folder> --output <output_folder>
+python music_sorter.py --input <input_folder> --output <output_folder>
